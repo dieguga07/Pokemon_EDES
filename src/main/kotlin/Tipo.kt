@@ -1,13 +1,17 @@
-
-
+/**
+ * # Comentarios sobre la clase [Tipo]
+ *
+ * Esta clase alberga un constructor una lista [lista_tipos] y una funcion [compara_tipos]
+ * @constructor Tipo
+ * @author Diego Gutierrez y Esther Nieto
+ * @since 1.0.0
+ *
+ */
 
 class Tipo(tipo:String){
 
     var lista_tipos = listOf("fuego","planta","agua","electrico")
     var tipo = tipo
-            /* Introducimos esto para evitar tipos de pokemons no deseados asignando
-            uno por defecto si no no esta en la lista de tipos */
-
         get() {
             return  field
         }
@@ -19,9 +23,11 @@ class Tipo(tipo:String){
 
             }
         }
-    /* funcion que recibe un tipo de pokemon y el ataque, para comparar la efectividad de un ataque */
 
-    // sin terminar
+    /**
+     * ### Funcion [compara_tipos]
+     *Comparar la efectividad entre los ataques y los tipos del pokemon según los tipos que hay
+     */
     fun compara_tipos(tipo_pokemon:String,tipo_ataque:String){
 
         if (tipo_pokemon == "planta" && tipo_ataque == "fuego"){
