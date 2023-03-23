@@ -1,7 +1,4 @@
-open class Pokemon(nombre: String, lore: String, tipo:Tipo, fuerza:Int, vida:Int){
-
-    var lista_pokemons = listOf("charmander","bulbasur","squirtle","jolteon")
-
+ class Pokemon(nombre: String, lore: String, tipo:Tipo, fuerza:Int, vida:Int){
 
     var nombre = nombre
     var lore = lore
@@ -12,26 +9,9 @@ open class Pokemon(nombre: String, lore: String, tipo:Tipo, fuerza:Int, vida:Int
 
  fun recibirAtaque (ataque_recibido:Ataque){
 
-     ataque_recibido
+
 
 
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
