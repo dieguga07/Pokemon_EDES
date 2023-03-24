@@ -1,7 +1,7 @@
 /**
  * # Comentarios sobre la clase [Tipo]
  *
- * Esta clase alberga un constructor una lista [lista_tipos] y una funcion [compara_tipos]
+ * Esta clase alberga un constructor, una lista [lista_tipos] y una funcion [compara_tipos]
  * @constructor Tipo
  * @author Diego Gutierrez y Esther Nieto
  * @since 1.0.0
