@@ -14,25 +14,48 @@ fun main(){
     val jugador4 = Jugador(squirtle)
     val Diego = Jugador(moltres)
 
-
-        println("Comienza el combate... \n El Dominguero Diego te reta a un combate:")
+    //Primer combate
+    println("Comienza el combate..... contra el Dominguero Pepe")
+    while (true){
         println("")
-        println("                                  jugador1 ---> charmander vida:${jugador1.pokemon.vida}")
-        println("                                                                                   ")
-        println("                                                                                   ")
-        println("  Tú ----> jolteon vida:${Tu.pokemon.vida}                                         ")
+        println("                                  Dominguero Pepe ---> charmander vida:${jugador1.pokemon.vida}")
+        println("                                                                                        ")
+        println("                                                                                        ")
+        println("  Tú ----> jolteon vida:${Tu.pokemon.vida}                                              ")
+        println("")
+        println("ataques posibles:    1-Onda voltio-10 daño    2- Trueno-15 daño \n       3-Chispas-4 daño    4-..No asignado..")
+        println("Que ataque desea realizar:")
+        var ataque_a_realizar = readln().toString()
+        if (ataque_a_realizar != "Onda Voltio" || ataque_a_realizar != "Trueno" || ataque_a_realizar != "Chispas"){
+            ataque_a_realizar = "Onda Voltio"
+        }
+            println("(si el daño no es el correspondiente no se realizara ataque)")
+            println("que daño realiza el ataque elegido:")
 
-    println("El jugador 1 utilizo ascuas")
-    Tu.pokemon.recibirAtaque(Ataque("ascuas",Tipo("fuego"),8))
-    Tu.pokemon.vida = Tu.pokemon.vida - 8
-    println("Comienza el combate... \n El Dominguero Diego te reta a un combate:")
-    println("")
-    println("                                  jugador1 ---> charmander vida:${jugador1.pokemon.vida}")
-    println("                                                                                   ")
-    println("                                                                                   ")
-    println("  Tú ----> jolteon vida:${Tu.pokemon.vida}                                              ")
-    jugador1.pokemon.recibirAtaque(Ataque("chispas",Tipo("electrico"),4))
-   jugador1.pokemon.vida = jugador1.pokemon.vida - 3
+            var dano_realizado = readln().toInt()
+
+        jugador1.pokemon.recibirAtaque(Ataque(ataque_a_realizar,Tipo("electrico"),dano_realizado))
+        jugador1.pokemon.vida = jugador1.pokemon.vida - dano_realizado
+        if (jugador1.pokemon.vida <= 0){
+            println("Ganaste al Dominguero Pepe             " +
+                    "Ganaste 300&")
+            break
+        }
+        println("")
+        println("                                  Dominguero Pepe ---> charmander vida:${jugador1.pokemon.vida}")
+        println("                                                                                        ")
+        println("                                                                                        ")
+        println("  Tú ----> jolteon vida:${Tu.pokemon.vida}                                              ")
+        println("turno del Dominguero Pepe")
+        println("charmander utilizo ascuas")
+        Tu.pokemon.recibirAtaque(Ataque("ascuas",Tipo("fuego"),8))
+        Tu.pokemon.vida = Tu.pokemon.vida - 4
+        if (Tu.pokemon.vida <= 0){
+            println("Perdiste contra Dominguero Pepe             " +
+                    "Perdiste 300&")
+            break
+        }
+    }
 
 
 }
