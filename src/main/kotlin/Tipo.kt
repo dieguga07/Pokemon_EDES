@@ -7,8 +7,7 @@
  * @since 1.0.0
  *
  */
-
-class Tipo(tipo:String){
+ class Tipo(tipo:String){
 
     var lista_tipos = listOf("fuego","planta","agua","electrico")
     var tipo = tipo
@@ -24,7 +23,6 @@ class Tipo(tipo:String){
             }
 
         }
-
     /**
      * ### Funcion [compara_tipos]
      *Comparar la efectividad entre los ataques y los tipos del pokemon según los tipos que hay que son:
@@ -34,6 +32,12 @@ class Tipo(tipo:String){
      * 4. electrico
      */
     fun compara_tipos(tipo_pokemon:String,tipo_ataque:String){
+        /*
+        Nota:
+         Increible ese ataque es supereficaz, sigue asi.. es ---> 2x de daño
+         Vaya... ese ataque no es muy eficaz ----> 0.5X de daño
+         Buen ataque.... -----> 1x de daño
+         */
 
         //Para tipo planta
         if (tipo_pokemon == "planta" && tipo_ataque == "fuego"){
