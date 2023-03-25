@@ -7,31 +7,46 @@
  * @author Diego Gutierrez y Esther Nieto
  * @since 1.0.0
  */
- class Pokemon(nombre: String, lore: String, tipo:Tipo, fuerza:Int, vida:Int) {
+class Pokemon(tipo_pokemon: String, nombre_pokemon: String, lore_pokemon: String, vida_pokemon:Int): Tipo(tipo_pokemon) {
 
 
-    //variables que posee la clase
-    var nombre = nombre
-    var lore = lore
-    var fuerza = fuerza
-    var vida = vida
+    /**
+     * Variables de la clase [Pokemon]
+     */
 
-// funcion para recibir un ataque de otro jugador
 
-    fun recibirAtaque(ataque_recibido: Ataque) {
+    var nombre_pokemon = nombre_pokemon
+    var lore_pokemon = lore_pokemon
+    var vida_pokemon = vida_pokemon
 
-        if ("duplicado" == "") {
-            var ataque = ataque_recibido.dano * 2
-            vida - ataque
-        }
-        if ("normal" == "") {
-            var ataque = ataque_recibido.dano * 1
-            vida - ataque
-        }
-        if ("mitad" == "") {
-            var ataque = ataque_recibido.dano * 0.5
-            vida - ataque
-        }
 
+    /**
+     * Funcion para recibir un ataque de otro jugador
+     * @param tipo_pokemon es el tipo del pokemon aliado
+     * @param ataque_recibido es el tipo del ataque enemigo
+     * @param danio_pokemon es el daño del pokemon enemigo
+     */
+    // funcion para recibir un ataque de otro jugador
+    //Vamos a pedir los datos necesarios para usar la función CompararTipos en esta
+    fun recibirAtaque(tipo_pokemon:String, ataque_recibido: String, danio_pokemon: Int): Int {
+
+
+        var efectividad_a_multiplicar = CompararTipos(tipo_pokemon, ataque_recibido)
+        var ataque = danio_pokemon * efectividad_a_multiplicar
+        vida_pokemon = (vida_pokemon - ataque).toInt()
+        return vida_pokemon
     }
+
+
+    /**
+     * Para facilitar la presentación en el main, hemos hecho esta función
+     */
+    fun PokemonEnemigo(): String {
+        return "¡Dominguero Pepe saca a $nombre_pokemon!\n" +
+                "-- $nombre_pokemon --------- $vida_pokemon hp --"
+    }
+
+
+
+
 }
