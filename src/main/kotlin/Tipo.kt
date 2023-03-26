@@ -7,91 +7,136 @@
  * @since 1.0.0
  *
  */
- class Tipo(tipo:String){
+open class Tipo(tipo: String){
 
-    var lista_tipos = listOf("fuego","planta","agua","electrico")
+
+    /**
+     * Lista de tipos posibles
+     */
+    var lista_tipos = listOf("fuego", "planta", "agua", "electrico")
     var tipo = tipo
         get() {
             return  field
         }
         set(value) {
-            if (value !in lista_tipos){
-                println("Ese tipo no existe")
-            }
-            else{
+            if (value in lista_tipos){
                 field = value
             }
-
         }
     /**
-     * ### Funcion [compara_tipos]
-     *Comparar la efectividad entre los ataques y los tipos del pokemon según los tipos que hay que son:
+     * ### Funcion [CompararTipos]
+     * Comparar la efectividad entre los ataques y los tipos del pokemon según los tipos que hay disponibles, que son:
      * 1. planta
      * 2. agua
      * 3. fuego
      * 4. electrico
      */
-    fun compara_tipos(tipo_pokemon:String,tipo_ataque:String){
-        /*
-        Nota:
-         Increible ese ataque es supereficaz, sigue asi.. es ---> 2x de daño
-         Vaya... ese ataque no es muy eficaz ----> 0.5X de daño
-         Buen ataque.... -----> 1x de daño
+    fun CompararTipos(tipo_pokemon:String,tipo_ataque:String): Double {
+
+
+        /**
+         * Para ataques supereficaces (2x)
          */
 
-        //Para tipo planta
-        if (tipo_pokemon == "planta" && tipo_ataque == "fuego"){
-            println("Increible ese ataque es supereficaz, sigue asi....")
-        }
-        if (tipo_pokemon == "planta" && tipo_ataque == "agua"){
-            println("Vaya... ese ataque no es muy eficaz")
-        }
-        if (tipo_pokemon == "planta" && tipo_ataque == "planta"){
-            println("Vaya... ese ataque no es muy eficaz")
-        }
-        //Para tipo fuego
-        if (tipo_pokemon == "fuego" && tipo_ataque == "electrico"){
-            println("Buen ataque....")
-        }
-        if (tipo_pokemon == "fuego" && tipo_ataque == "agua"){
-            println("Increible ese ataque es supereficaz, sigue asi....")
-        }
-        if (tipo_pokemon == "fuego" && tipo_ataque == "fuego"){
-            println("Vaya... ese ataque no es muy eficaz")
-        }
-        if (tipo_pokemon == "fuego" && tipo_ataque == "planta"){
-            println("Vaya... ese ataque no es muy eficaz")
-        }
-       //Para tipo agua
-        if (tipo_pokemon == "agua" && tipo_ataque == "electrico"){
-            println("Increible ese ataque es supereficaz, sigue asi....")
-        }
-        if (tipo_pokemon == "agua" && tipo_ataque == "planta"){
-            println("Increible ese ataque es supereficaz, sigue asi....")
-        }
-        if (tipo_pokemon == "agua" && tipo_ataque == "fuego"){
-            println("Vaya... ese ataque no es muy eficaz")
-        }
-        if (tipo_pokemon == "agua" && tipo_ataque == "agua"){
-            println("Vaya... ese ataque no es muy eficaz")
-        }
-        //Para tipo electrico
-        if (tipo_pokemon == "electrico" && tipo_ataque == "electrico"){
-            println("Vaya... ese ataque no es muy eficaz")
-        }
-        if (tipo_pokemon == "electrico" && tipo_ataque == "planta"){
-            println("Buen ataque....")
-        }
-        if (tipo_pokemon == "electrico" && tipo_ataque == "fuego"){
-            println("Buen ataque....")
-        }
-        if (tipo_pokemon == "electrico" && tipo_ataque == "agua"){
-            println("Increible ese ataque es supereficaz, sigue asi....")
-        }
 
-
-
+        if ((tipo_pokemon == "planta" && tipo_ataque == "fuego") ||
+            (tipo_pokemon == "fuego" && tipo_ataque == "agua") ||
+            (tipo_pokemon == "agua" && tipo_ataque == "electrico") ||
+            (tipo_pokemon == "agua" && tipo_ataque == "planta") ||
+            (tipo_pokemon == "electrico" && tipo_ataque == "agua")){
+            return 2.00
+        }
+        /**
+         * Para ataques no eficaces (0.5x)
+         */
+        else if ((tipo_pokemon == "planta" && tipo_ataque == "agua") ||
+            (tipo_pokemon == "planta" && tipo_ataque == "planta") ||
+            (tipo_pokemon == "fuego" && tipo_ataque == "fuego") ||
+            (tipo_pokemon == "fuego" && tipo_ataque == "planta") ||
+            (tipo_pokemon == "electrico" && tipo_ataque == "electrico") ||
+            (tipo_pokemon == "agua" && tipo_ataque == "fuego") ||
+            (tipo_pokemon == "agua" && tipo_ataque == "agua")){
+            return 0.5
+        }
+        /**
+         * Para ataques normales (1x)
+         */
+        else {
+            return 1.00
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
