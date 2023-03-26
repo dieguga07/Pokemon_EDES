@@ -32,6 +32,5 @@
             var ataque = ataque_recibido.dano * 0.5
             vida - ataque
         }
-
     }
 }
